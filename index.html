@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello World</title>
+        <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+
+</head>
+
+<body>
+        <p>Hello World</p>
+        <script>
+                const socket = io();
+                // socket.on('myCustomEvent', function (data) {
+                //         document.write(data.description)
+                // });
+                // socket.emit('myCustomEventFromClientSide', { description: 'A custom massage from Client side!' });
+
+                // socket.on('broadcast',function(data){
+                //    document.body.innerHTML ='';
+                //    document.write(data.message);
+                // })
+
+                // socket.on('newuserconnect', function (data) {
+                //         document.body.innerHTML = '';
+                //         document.write(data.massage);
+                // })
+
+                socket.on('newuserconnect', function (data) {
+                        document.body.innerHTML = '';
+                        document.write(data.massage);
+                });
+
+                //error handling in cleint side              
+                socket.on('connect_failed', function () {
+                        alert('Sorry, Your connection failed');
+                })
+                // same as reconnect,reconnect_failed,error we ca change event
+
+
+
+        </script>
+        <!-- on means ham event ko catch kar rahe hai or emit means event ko create kar rahe hai -->
+</body>
+
+</html>
